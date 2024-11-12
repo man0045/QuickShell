@@ -1,15 +1,5 @@
 import React from "react";
-import { ThreeCircles } from "react-loader-spinner";
-const Loading = ({
-  size = 80,
-  color = "#4fa94d",
-  text = "Loading",
-  showCircles = true,
-  circleSize = 100,
-  circleColor = "#4fa94d",
-  textColor = "green",
-  textStyle = {},
-}) => {
+const Loading = ({ size = 80, color = "#4fa94d", text = "Loading", textColor = "green", textStyle = {} }) => {
   return (
     <div
       style={{
@@ -19,23 +9,10 @@ const Loading = ({
         justifyContent: "center",
         alignItems: "center",
         flexDirection: "column",
-        gap: "5px",
+        gap: "10px",
       }}
     >
-      {showCircles && (
-        <ThreeCircles
-          height={circleSize}
-          width={circleSize}
-          color={circleColor}
-          wrapperStyle={{}}
-          wrapperClass=""
-          visible={true}
-          ariaLabel="three-circles-rotating"
-          outerCircleColor=""
-          innerCircleColor=""
-          middleCircleColor=""
-        />
-      )}
+      <div className="spinner" style={{ width: size, height: size, border: `5px solid ${color}`, borderTop: `5px solid transparent`, borderRadius: "50%", animation: "spin 1s linear infinite" }}></div>
       <span
         style={{
           fontSize: "30px",
@@ -47,11 +24,13 @@ const Loading = ({
       >
         {text}
       </span>
+      <style>{`
+        @keyframes spin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+      `}</style>
     </div>
   );
 };
 export default Loading;
-
-
-
-

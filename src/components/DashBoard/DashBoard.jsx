@@ -13,7 +13,7 @@ import SVG_Ur from '../../Images/SVG-Urgent_Priority_colour.svg';
 import TODO from '../../Images/To-do.svg';
 
 const DashBoard = () => {
-  const grouping = localStorage.getItem("group"); // Get grouping value from localStorage
+  const grouping = localStorage.getItem("group");
   const isStatus = grouping === "status";
   const isPriority = grouping === "priority";
 
